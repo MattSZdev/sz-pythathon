@@ -1,0 +1,49 @@
+/* frontend/src/components/TVChartContainer.css */
+
+/* 1. ELIMINAR BORDES BLANCOS Y ASEGURAR FONDO OSCURO */
+.TVChartContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Fondo Azul Oscuro/Negro: Si la gráfica tarda en cargar, se verá este color */
+    background-color: #000000; 
+    padding: 0;
+    margin: 0;
+    overflow: hidden; /* Corta cualquier cosa que se salga */
+}
+
+/* iframe generado por TradingView */
+.TVChartContainer iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* 2. ESTILOS DE LOS BOTONES (Toolbar superior) */
+.exchange-btn {
+    padding: 6px 12px;
+    margin: 0 8px 0 0; /* Espacio a la derecha */
+    background-color: #1e293b; /* Azul grisáceo oscuro */
+    color: #94a3b8; /* Texto gris claro */
+    border: 1px solid #334155;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: 'Inter', 'Roboto Mono', monospace; /* Fuente técnica */
+    transition: all 0.2s ease;
+}
+
+.exchange-btn:hover {
+    background-color: #334155;
+    color: white;
+    border-color: #475569;
+}
+
+.exchange-btn.active {
+    background-color: #2563eb; /* Azul Brillante activo (coherente con el resto del sitio) */
+    border-color: #2563eb;
+    color: white;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+}
