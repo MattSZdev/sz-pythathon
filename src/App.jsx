@@ -1,39 +1,21 @@
 import { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import './App.css';
 import LoadingScreen from './components/LoadingScreen';
 
-// Carga perezosa para optimizar el bundle
+// 1. CARGA SOLO EL SCREENER (Única herramienta activa)
 const ScreenerTool = lazy(() => import('./pages/screener/Screener')); 
 
 function App() {
   const [activeModule, setActiveModule] = useState('loading');
 
   useEffect(() => {
-    const hostname = window.location.hostname;
-    const path = window.location.pathname;
-    
-    // 1. Lógica para Producción (Subdominios)
-    if (hostname.includes('lemonpyth') || hostname.startsWith('terminal.')) {
-      setActiveModule('terminal');
-      return;
-    }
-    if (hostname.startsWith('screener.')) {
+    // Simulamos un pequeño delay para el LoadingScreen y verificar el entorno
+    const timer = setTimeout(() => {
       setActiveModule('screener');
-      return;
-    }
+    }, 500);
 
-    // 2. Lógica para Desarrollo (localhost)
-    if (hostname.includes('localhost') || hostname.includes('127.0.0.1')) {
-      if (path.startsWith('/terminal')) {
-        setActiveModule('terminal');
-      } else {
-        setActiveModule('screener');
-      }
-      return;
-    }
-
-    // Por defecto: Screener (Landing del Arbitraje)
-    setActiveModule('screener');
+    return () => clearTimeout(timer);
   }, []);
 
   if (activeModule === 'loading') return <LoadingScreen />;
@@ -42,16 +24,13 @@ function App() {
     <Suspense fallback={<LoadingScreen />}>
       <BrowserRouter>
         <Routes>
-          {/* Ruta raíz dinámica */}
-          <Route path="/" element={
-            activeModule === 'terminal' ? <Terminal /> : <ScreenerTool />
-          } />
-
-          {/* Paths fijos para navegación manual */}
-          <Route path="/terminal" element={<Terminal />} />
+          {/* 2. LA RAÍZ ES SIEMPRE EL SCREENER */}
+          <Route path="/" element={<ScreenerTool />} />
+          
+          {/* 3. RUTA EXPLÍCITA PARA EL SCREENER */}
           <Route path="/screener" element={<ScreenerTool />} />
 
-          {/* Catch-all: Redirige a la raíz para no romper la app */}
+          {/* 4. CUALQUIER OTRA RUTA (como /terminal) REDIRIGE AL INICIO */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
