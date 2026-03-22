@@ -1,16 +1,27 @@
-# React + Vite
+🍋 LemonPyth - Arbitraje & Oráculo de Precios Predictivo
+LemonPyth es una herramienta técnica desarrollada para la Pythathon 2026. El proyecto consiste en un oráculo de precios predictivo y un escáner de arbitraje en tiempo real que utiliza la infraestructura de Pyth Network para anticipar tendencias, detectar oportunidades y mitigar riesgos de volatilidad en el ecosistema de Cardano.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+👥 Equipo (Team)
+Capitán: Matthew Suarez — matt@szoficial.com
 
-Currently, two official plugins are available:
+Integrante: Moises Ezequiel Schvarzman Robles — archivosparticularez@gmail.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Integrante: Nasar Hernan — hnasar@gmail.com
 
-## React Compiler
+🛠️ Descripción del Proyecto
+El proyecto está diseñado para resolver la necesidad de datos precisos, predictivos y de baja latencia en Cardano.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Oráculo Predictivo: Utiliza modelos estadísticos sobre los datos de Pyth para proyectar tendencias de corto plazo, permitiendo a los protocolos reaccionar antes de que ocurran movimientos bruscos de mercado.
 
-## Expanding the ESLint configuration
+Screener de Arbitraje: Compara los precios institucionales de Pyth con feeds de mercados externos para identificar brechas rentables en tiempo real.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Terminal de Alertas: Notificaciones instantáneas basadas en el análisis de desviación entre el precio actual y el predictivo.
+
+🔮 Uso de Pyth Network
+En este proyecto, Pyth es el motor del análisis predictivo y la seguridad:
+
+Análisis Predictivo de Tendencias: Se consumen los Price Feeds y los intervalos de confianza de Pyth como variables de entrada para algoritmos de predicción de volatilidad, permitiendo un enfoque "post-predictivo" que identifica la dirección del mercado.
+
+Verificación on-chain: (Cardano Integration) Implementación de la validación de firmas de Pyth para asegurar que los datos predictivos estén anclados a precios reales, legítimos y resistentes a la manipulación.
+
+Eficiencia de Baja Latencia: Aprovechamos las actualizaciones de alta frecuencia para alimentar el modelo predictivo, asegurando que las señales de arbitraje se generen con una ventaja competitiva de milisegundos.
