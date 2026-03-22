@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LoadingScreen from './components/LoadingScreen';
 
 // Carga perezosa para optimizar el bundle
-const Terminal = lazy(() => import('./pages/terminal/Terminal'));
 const ScreenerTool = lazy(() => import('./pages/screener/Screener')); 
 
 function App() {
