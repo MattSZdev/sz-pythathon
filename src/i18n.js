@@ -12,8 +12,7 @@ i18n
   .init({
     resources: {
       es: { translation: es },
-      en: { translation: en },
-      ru: { translation: ru }
+      en: { translation: en }
     },
     fallbackLng: 'en', // Si no detecta idioma, usa Inglés
     interpolation: {

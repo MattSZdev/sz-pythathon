@@ -1,10 +1,11 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
-import './i18n'; 
-import './index.css'; // Asegúrate de que el path sea correcto (usualmente ./index.css)
+import './i18n.js'; 
+// CAMBIO AQUÍ: Apuntamos a la carpeta assets
+import './assets/index.css'; 
 
-// --- 🔥 INTERCEPTOR DE RED (Anti-Crash Global) ---
+// --- 🔥 INTERCEPTOR DE RED ---
 (function() {
     const mockTimeResponse = JSON.stringify({
         utc_datetime: new Date().toISOString(),

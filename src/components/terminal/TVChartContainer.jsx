@@ -28,7 +28,7 @@ export default function TVChartContainer({ activeSymbol, onSymbolChange }) {
       symbol: currentSymbol, 
       interval: '5', // 🔥 Inicia en 5 minutos
       container: chartContainerRef.current,
-      library_path: '/charting_library/', 
+      library_path: '/', 
       locale: 'es',
       datafeed: datafeedRef.current,
       autosize: true,
